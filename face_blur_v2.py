@@ -15,7 +15,9 @@ video_capture = cv2.VideoCapture('part1000-3000.mp4')
 fps = int(video_capture.get(cv2.CAP_PROP_FPS))
 # Create a VideoWriter object to write the output video
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-output_video = cv2.VideoWriter('output_video.mp4', fourcc, fps, (int(video_capture.get(3)), int(video_capture.get(4))))
+output_video = cv2.VideoWriter('output_video.mp4', fourcc, fps,
+                               (int(video_capture.get(3)),
+                                int(video_capture.get(4))))
 
 
 # loop through frames of video
@@ -73,7 +75,7 @@ while True:
 # close all opencv windows
 cv2.destroyAllWindows()
 
-# release video capture and out put video objects
+# release video capture and output video objects
 video_capture.release()
 output_video.release()
     

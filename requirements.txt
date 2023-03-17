@@ -1,4 +1,5 @@
 # Base ----------------------------------------
-matplotlib>=3.2.2
-numpy>=1.18.5
-opencv-python>=4.6.0
+matplotlib==3.2.2
+numpy==1.18.5
+opencv-python==4.6.0
+face-detection==0.2.1
