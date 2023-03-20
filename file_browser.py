@@ -11,8 +11,7 @@ window_geo_w = 600
 window_geo_h = 250
 
 
-
-def browseFiles():
+def browseVideoFiles():
     global VIDEO_FILES_PATH
 
     f = filedialog.askopenfilenames(initialdir= "/",
@@ -35,6 +34,11 @@ def browseFiles():
     
     # print(VIDEO_FILES_PATH)
 
+
+def browseOutputFolder():
+    global OUTPUT_FOLDER
+
+    f = filedialog.askdirectory()
 
 def blurFiles():
     global VIDEO_FILES_PATH
@@ -60,7 +64,7 @@ label_browse_files = Label(window,
 
 button_browse_files = Button(window,
                         text="Browse Files",
-                        command=browseFiles)
+                        command=browseVideoFiles)
 
 
 label_output_path = Label(window,
@@ -71,7 +75,7 @@ label_output_path = Label(window,
 
 button_output_path = Button(window,
                             text="Browse Output Folder",
-                            )
+                            command=browseOutputFolder)
 
 
 button_blur = Button(window,
