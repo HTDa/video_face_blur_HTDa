@@ -14,7 +14,7 @@ window_geo_h = 250
 def browseVideoFiles():
     global VIDEO_FILES_PATH
 
-    f = filedialog.askopenfilenames(initialdir= "/",
+    f = filedialog.askopenfilenames(
                                     title="Select a file",
                                     filetypes = (("Video files", "*.mp4*"),
                                                 ("all files", "*.*")))
@@ -22,15 +22,19 @@ def browseVideoFiles():
     # change label contents
     
     # print(f)
-    display_text = "Files opened:"
+    
     f = list(f)
     VIDEO_FILES_PATH = f
-    for f_name in f:
-        display_text += '\n' + f_name.split('/')[-1] 
+    
+    display_text = "Files opened: " + str(len(f))
+    
+    # for f_name in f:
+    #     display_text += '\n' + f_name.split('/')[-1] 
     label_browse_files.configure(text=display_text)
-    window_geo = "600x" + str(min(800, max(window_geo_h, 200 + 30*len(f))))
-    window.geometry(window_geo)
-    label_browse_files.configure(height=len(f)+3)
+
+    # window_geo = "600x" + str(min(800, max(window_geo_h, 200 + 30*len(f))))
+    # window.geometry(window_geo)
+    # label_browse_files.configure(height=len(f)+3)
     
     # print(VIDEO_FILES_PATH)
 
@@ -39,6 +43,7 @@ def browseOutputFolder():
     global OUTPUT_FOLDER
 
     f = filedialog.askdirectory()
+    label_output_path.configure(text="Output Path: " + f)
 
 def blurFiles():
     global VIDEO_FILES_PATH
