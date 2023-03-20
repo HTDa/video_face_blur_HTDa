@@ -43,13 +43,23 @@ def browseOutputFolder():
     global OUTPUT_FOLDER
 
     f = filedialog.askdirectory()
+    OUTPUT_FOLDER = f
     label_output_path.configure(text="Output Path: " + f)
 
 def blurFiles():
     global VIDEO_FILES_PATH
-    file_path = VIDEO_FILES_PATH
-    if file_path is not None:
-        print('hi')
+    global OUTPUT_FOLDER
+
+    video_path_list = VIDEO_FILES_PATH
+    output_path = OUTPUT_FOLDER
+    
+    if video_path_list is not None and output_path is not None:
+        print(video_path_list)
+        print(output_path)
+
+        for video_path in video_path_list:
+            vfb.videoFaceBlur(video_path, output_path)
+
 
 
 window = Tk()
@@ -83,7 +93,7 @@ button_output_path = Button(window,
                             command=browseOutputFolder)
 
 
-button_blur = Button(window,
+button_apply_blur = Button(window,
                         text="Blur Files",
                         command=blurFiles)
 
@@ -97,7 +107,7 @@ label_browse_files.grid(column=0, row=1)
 button_browse_files.grid(column=0, row=2)
 label_output_path.grid(column=0, row=3)
 button_output_path.grid(column=0, row=4)
-button_blur.grid(column=0, row=5)
+button_apply_blur.grid(column=0, row=5)
 button_exit.grid(column=0, row=6)
 
 window.mainloop()
