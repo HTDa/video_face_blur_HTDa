@@ -21,7 +21,7 @@ detector = face_detection.build_detector(
 
 
 # open video file
-cap = cv2.VideoCapture("part1000-3000.mp4")
+cap = cv2.VideoCapture("C:/Users/hungt/Desktop/stuff/code/video_face_blur_HTDa/part1000-3000.mp4")
 # get fps of video
 fps = int(cap.get(cv2.CAP_PROP_FPS))
 # create VideoWriter object to write output video
