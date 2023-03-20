@@ -1,7 +1,7 @@
 import cv2
 
 file = "original_video.mp4"
-parts = [(1000, 3000)]
+parts = [(2600, 2800)]
 
 
 

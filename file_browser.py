@@ -8,7 +8,7 @@ OUTPUT_FOLDER = None
 
 
 window_geo_w = 600
-window_geo_h = 250
+window_geo_h = 300
 
 
 def browseVideoFiles():
@@ -52,13 +52,18 @@ def blurFiles():
 
     video_path_list = VIDEO_FILES_PATH
     output_path = OUTPUT_FOLDER
+
+    
     
     if video_path_list is not None and output_path is not None:
         print(video_path_list)
         print(output_path)
 
-        for video_path in video_path_list:
+        for i in range(0, len(video_path_list)):
+            video_path = video_path_list[i]
             vfb.videoFaceBlur(video_path, output_path)
+    
+    label_progress.configure(text="Finished Files: " + str(i+1) + "/" + str(len(video_path_list)))
 
 
 
@@ -94,8 +99,13 @@ button_output_path = Button(window,
 
 
 button_apply_blur = Button(window,
-                        text="Blur Files",
+                        text="Process Files",
                         command=blurFiles)
+
+
+label_progress = Label(window, width=85, height=3,
+                        text="Waiting...",
+                        fg="black")
 
 
 button_exit = Button(window,
@@ -108,6 +118,7 @@ button_browse_files.grid(column=0, row=2)
 label_output_path.grid(column=0, row=3)
 button_output_path.grid(column=0, row=4)
 button_apply_blur.grid(column=0, row=5)
-button_exit.grid(column=0, row=6)
+label_progress.grid(column=0, row=6)
+button_exit.grid(column=0, row=7)
 
 window.mainloop()

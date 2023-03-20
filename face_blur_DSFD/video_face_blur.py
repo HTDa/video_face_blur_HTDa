@@ -27,7 +27,9 @@ def videoFaceBlur(path, output_folder):
 
     cap = cv2.VideoCapture(path)
     video_name = path.split('/')[-1].split('.')[0]
-    print(video_name)
+
+    print("\nVideo name: " + video_name)
+    
     fps = int(cap.get(cv2.CAP_PROP_FPS))
     video_length = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
@@ -42,10 +44,11 @@ def videoFaceBlur(path, output_folder):
         
         # print(frame_index)
         frame_index += 1
-        progressBar(frame_index, video_length)
+        progressBar(frame_index, video_length+1)
 
         ret, frame = cap.read()
         if not ret:
+            print()
             break
 
 
