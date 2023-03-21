@@ -3,6 +3,7 @@
 
 Installation
 ```bash
-cd video_face_blur_HTDa
-pip install -r requirements.txt  # install
+pip install opencv-python
+pip install face-detection
 ```
+You need to re-install the correct version of torch with CUDA for torch to utilise GPU
