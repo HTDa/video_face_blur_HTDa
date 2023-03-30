@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import face_detection
 import sys
+import torch
 
 
 detector = face_detection.build_detector(
@@ -24,6 +25,9 @@ def progressBar(count_value, total, suffix=''):
 def videoFaceBlur(path, output_folder):
 
     global detector
+
+    print()
+    print(torch.cuda.get_device_properties(torch.cuda.current_device()))
 
     cap = cv2.VideoCapture(path)
     video_name = path.split('/')[-1].split('.')[0]
